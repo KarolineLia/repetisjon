@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="bokstav"></p>
+    <script>
+        //Lagde en array med bokstaver. Her brukte jeg "" fordi jeg vil at det skal være en tekst-string
+        const bokstaver = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+            "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+        
+        //Funksjonen lookup(a) skal se etter om arrayen bokstaver har bokstaven vi letter etter i seg. 
+        function lookup(a) {
+            //lagde en const kalt letter. Denne sier at a (fra funksjonen) skal bli gjort om til en string og til upper case
+            //grunnen til dette er at arrayen vår har upper case i seg, så for å forsikre oss om at vi kan bruke lower case
+            //når vi skal se etter en bokstav så tvinger vi den til å bli upper case.
+            const letter = a.toString().toUpperCase()
+            if(bokstaver.includes(letter)) {
+                const index = bokstaver.indexOf(letter)
+                document.getElementById("bokstav").innerHTML = `Bokstaven ${letter} har plassering ${index + 1}`
+            } else {
+                document.getElementById("bokstav").innerHTML = `Denne bokstaven finnes ikke i det engelske alfabetet`
+            }
+        }
+
+        //Her kjører vi funksjonen slik at den faktisk gjør det den skal
+        lookup("Å")
+
+    </script>
+</body>
+</html>

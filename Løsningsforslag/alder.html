@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+
+    <script>
+        let alder = 25
+
+        let print = ""
+
+        //Lagde en if/else statement. Tok først hvis man var under 18 og hva som skjer da, siden man ellers vil være 18 eller over la
+        //jeg ikke inn en annen betingelse enn else
+        if(alder < 18) {
+            print = `Du er ${alder} år gammel og er derfor ikke myndig. Beklager`
+        } else {
+            print = `Du er ${alder} år gammel og er derfor myndig. Gratulerer`
+        }
+
+        //Printet ut til HTML
+        document.getElementById("utskrift").innerHTML = print
+    </script>
+</body>
+</html>

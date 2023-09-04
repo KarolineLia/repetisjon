@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PC Spill</h1>
+    <ul id="gamesList">
+
+    </ul>
+    
+    <script>
+        //Array med spill og platformene de er på
+        const games = [
+            {
+                name: "Spider-man 2",
+                platforms: ["Playstation"]
+            },
+            {
+                name:"Hogwarts Legacy",
+                platforms: ["Playstation", "Xbox", "PC", "Nintendo"]
+            },
+            {
+                name: "Diablo IV",
+                platforms: ["Playstation", "PC", "Xbox"]
+            },
+            {
+                name: "Fortnite",
+                platforms: ["PC", "Playstation", "Xbox", "Nintendo", "Android"]
+            }
+        ]
+
+        //Filtrer ut alle spillene som kan spilles på PC
+        const gameFilter = games.filter((game) => game.platforms.includes("PC"))
+
+        //Skriv disse ut i en liste
+        document.getElementById("gamesList").innerHTML = gameFilter.map((game) => `<li>${game.name}</li>`).join('')
+
+    </script>
+</body>
+</html>

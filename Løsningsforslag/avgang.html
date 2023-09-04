@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="takeOff">
+
+    </ul>
+
+    <script>
+        let countdown = ""
+
+        //Bruk en for-løkke for å telle ned fra 5 til 0. Den skal ikke få under 0
+        for(let teller = 5; teller >= 0; teller--) {
+            countdown += `<li>${teller === 0 ? "We are ready for take-off" : teller}</li>`
+        }
+        //Telleren skal skrives ut til HTML og når den treffer 0 skal det stå "We are ready for take-off"
+        //Her kan de være lurt å vurdere en if/else statement.
+
+        //Skriv ut countdown til HTML
+        document.getElementById("takeOff").innerHTML = countdown
+
+    </script>
+</body>
+</html>

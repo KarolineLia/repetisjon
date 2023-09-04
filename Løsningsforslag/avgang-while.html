@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="countdown">
+
+    </ul>
+
+    <script>
+        //Lag en tom tekst-string
+        let countdownTimer = ""
+
+        //Lag en teller
+        let teller = 10
+
+        //Lag en while-løkke som teller ned fra 10 - 0. Det vil si at den skal slutte å telle når den treffer 0
+        //Når den treffer 0 skal det stå "We are ready for take-off"
+        while(teller >= 0) {
+            countdownTimer += `<li>${teller === 0 ? "We are ready for take-off" : teller}</li>`
+            teller--
+        }
+
+        //Skriv dette ut til HTML
+        document.getElementById("countdown").innerHTML = countdownTimer
+
+    </script>
+</body>
+</html>
