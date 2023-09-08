@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autofilled Menu</title>
+    <link href="menu.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Exam 2</h1>
+        <button id="toggleMenu" aria-label="Open the menu" onclick="openClose()">Menu <img src="menuicon.png" aria-hidden="true"></button>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        
+        //Menystruktur (array på to nivåer: menupoints > categories > links in category)
+        const menuPoints = [
+            {menuheader: "JavaScript resources", menulinks: [
+                {url: "https://www.w3schools.com/js/default.asp", menutext: "W3Schools"},
+                {url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", menutext: "Mozilla Developer Network"},
+                {url: "http://jsforcats.com/", menutext: "JavaScript for cats"}
+            ]},
+            {menuheader: "HTML resources", menulinks: [
+                {url: "https://www.w3schools.com/html/default.asp", menutext: "W3Schools"},
+                {url: "https://validator.w3.org/", menutext: "W3 Validator"},
+            ]},
+            {menuheader: "CSS resources", menulinks: [
+                {url: "https://www.w3schools.com/css/default.asp", menutext: "W3Schools"},
+                {url: "https://css-tricks.com/", menutext: "CSS Tricks"},
+            ]}
+        ]
+
+        //Lagre knapp- og meny-element for bruk i koden:
+        const menu = document.getElementById("menu")
+        const button = document.getElementById("toggleMenu")
+
+        /* TODO:
+         * Funksjon for å åpne/lukke meny:
+         * Hvis #menu inneholder klassen .active: 
+         * 1) fjern klassen
+         * 2) endre knappen til å inneholde teksten Menu og bildet menuicon.png
+         * Hvis ikke:
+         * 1) legg til klassen .active på #menu
+         * 2) endre knappen til å inneholde teksten Close og bildet closeicon.png
+         */
+        //Function to open and close menu:
+        function openClose() {
+            
+        }
+        //Denne funksjonen kjører en if/else som sjekker klassen til elementet #menu. Hvis #menu har klassen active
+        //skal klassen bli fjernet og button skal vise teksten Menu med menuicon.png. Hvis den ikke er aktiv
+        //skal den få klassen active og vise teksten Close med closeicon.png
+        
+
+        //Variabel for meny-HTML
+        //TODO: Skal ikke starte som en tom streng, må inneholde et punkt for å møte oppgaveteksten...
+        let menuHTML = `<ul>
+                        <li><a href="index.html">Home</a></li>
+                        </ul>
+                        `
+
+        //Gå gjennom første nivå av menupoints-array
+        menuPoints.map()
+            //TODO: Forbered HTML med overskrift og listestart
+            
+                                
+            //TODO: Gå gjennom array på andre nivå (menulinks)
+            
+            //TODO: For hver menulink: fyll menuHTML med listeelementer og link
+            
+            //TODO: Avslutt liste
+        
+          
+        /*Dette er en array på to nivåer. For å kunne gå gjennom denne slik at elementene kommer opp riktig i menyen
+        måtte jeg først gå gjennom den på det første nivået "categories". Dette var svært enkelt siden det bare er en
+        grunnleggende .map() og printe ut informasjonen til menuHTML. For å kunne gå gjennom arrayen på det andre nivået
+        måtte jeg legge inn item.array2.map(), som for denne arrayen ble category.menulinks.map(). Resten var ganske rett
+        frem med vanlig .map() gjennomgåing. Jeg printet igjen opp informasjonen til menuHTML, men links og listelementer.
+        Så avsluttet jeg dette ved å returnere.*/
+
+       
+        //TODO: Skriv ut HTML til <nav>:
+        
+    </script>
+</body>
+</html>
