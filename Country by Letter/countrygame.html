@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country by Letter</title>
+    <link href="countrystyle.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Guess countries by letter</h1>
+    <section id="game">
+        <div id="playarea">
+            <div id="info">
+                <p>Guess <span id="countryAmount" class="highlight"></span> countries starting with <span id="chosenLetter" class="highlight"></span> in the next <span id="countdown" class="highlight">90</span> seconds...</p>
+                
+            </div>
+            <div id="results">
+                <p><span id="correct">0</span>/<span id="total"></span> countries guessed</p>
+            </div>
+            <div id="userInputArea">
+                <input type="text" name="userguess" id="userguess">
+            </div>
+            <div id="startgame">
+                <p id="startmessage"></p>
+                <button id="startbutton" onclick="newGame()">New game</button>
+            </div>
+        </div>
+        <div id="userGuessed">
+            <h2>Correct guesses:</h2>
+            <ol id="userCorrectList">
+
+            </ol>
+        </div>
+    </section>
+    
+    
+    <!-- Import countries as array: -->
+    <script src="countrylist.js"></script>
+    <!-- Game code: -->
+    <script>
+        /*Planleggingen rundt denne delen av eksamen ligger vedlagt i mappen "prosjekt planlegging".
+        En ting som det kan være greit å være obs på er at alt som er skrevet/tegnet under planlegginsprosessen
+        følger min måte å tenke på. Noe som kan være litt rotete for andre enn meg til tider. Jeg har derfor
+        valgt å skrive ned hva hver del av koden skal gjøre, eks. "Starte countdown timer" som litt hjelp hvordan jeg har tenkt.
+        Jeg kommer også til å inkludere kommentarer med hvorfor jeg har tatt spesifikke valg hvis disse ikke nødvendigvis passer med
+        TODO delen av oppgaven.*/
+        /*
+         * NOTE: Countries are imported from the countrylist.js-file
+         * This give us the possibility to use variable countrylist to fetch an indexed array
+         * of all the worlds countries.
+         * The format of the list:
+         * const countryList = ["Afghanistan", "Albania", "Algeria"]
+         */
+
+        //PREPARE VARIABLES IN DOCUMENT SCOPE:
+        //Prepare input-field:
+        const inputfield = document.getElementById("userguess")
+        inputfield.focus()
+        //Prepare countdown variable:
+        let counter = 90
+        //Selectable letters:
+        const firstLetters = ""
+        //Siden et av kravene var at det kun skulle være bokstaver med minst 9 land, så måtte jeg fjerne
+        //E og F siden begge disse hadde 8 land, ikke 9.
+
+        //User-guessed correct countries:
+        let userCorrectGuesses = []
+
+        //Map array with countryList elements lowercase for easier control against user input:
+        //const countries_lower = countryList.map(letters => {
+            //return letters.toLowerCase()
+        //})
+        //Brukte https://bobbyhadz.com/blog/javascript-convert-all-elements-of-array-to-lowercase for denne kodebiten
+        /*Endte opp med å ikke bruke countries_lower. Valgte heller å gjøre det på en annen måte som blir forklart i checkCountry()*/
+
+        //Prepare array to contain countries filtered by firstletter
+        let countries = []
+        //Prepare interval id
+        let countInterval
+
+        //Function to start a game
+        function newGame() {}
+            //SETS/RESETS:
+            //TODO: Set/Reset counter
+            
+            
+            //TODO: Reset user guessed array
+            
+
+            /* TODO: 
+             * INTERFACE UPDATES
+             * Reset display list of guessed countries, game message, results and countdown timer
+             * Hide startbutton and show the inputfield, set inputfield focus
+             */
+            //Reset countries array:
+           
+            //Reset display of correct guesses number:
+            
+            //Reset display of correct guesses names:
+            
+            //Hide start button:
+            
+            //Show input field:
+            
+            //Make sure countdown timer starts with correct color: (0-10 = rød, fra 10-50 = oransj, fra 50-90 = grønn)
+            
+            //Input field in focus:
+            
+            
+            
+            /* TODO:
+             * SINGLE GAME DEPENDENCIES
+             * Select random letter for the game, and print the letter to interface (#chosenLetter)
+             * Create array of countries filtered on the random selected letter
+             * Print total countries to info and result display in interface
+             * Start the timer
+             */
+            //Plukke tilfeldig bokstav fra string:
+            
+        
+            //Få tilfeldig bokstav til å vises i #chosenLetter:
+            
+
+            //Lage array av land med den tilfeldige forbokstaven:
+            
+
+            //Få antall land til å vises i #countryAmount og #total:
+            
+
+            //Start timer:
+            
+        
+
+        //Function for country-control when Enter is clicked
+        function checkCountry() {
+            /* TODO:
+             * Fetch the guessed country, make sure to have correct capialization
+             * If it is a country in the list, and not already guessed, 
+             * insert into guessed countries and add to list of guessed countries in interface
+             * Update input field to be ready for new user guess
+             */
+
+            //Fetch text from imput field:
+            //Make sure that the text is lowercase:
+            
+
+            //Map countries array to avoid user errors:
+            
+            
+            //Variable for HTML element #userCorrectList:
+            
+            
+            //Make array for user guesses:
+            
+            //Pushed the lowercase input text into guesses array:
+            
+            
+            //Map trough array to check if guessed country is on list and has been guessed before:
+            
+
+            //Update input field to be ready for new user guess:
+            
+        }
+        
+        
+
+        //Function for printing the result:
+        function checkAndPrintResult() {
+            /* TODO: 
+             * Update interface with results.
+             * Check if all countries are found. If so, replace input with message and stop countdown
+             * */
+            //update correct guesses:
+            
+            //Dette er hvor jeg bruker alt som er blitt pushet inn i ueserCorrectGuesses, for å vise mengden riktige gjetninger.
+
+            //Check if all countries are found, and show "winning" screen:
+
+        }
+
+        //TODO: listen for Enter-key key-press. When found, check input-country.
+        
+
+        //Countdown functionality
+        function countdown() {
+            /* TODO:
+             * Reduce counter by one (each second)
+             * Update interface display
+             * Update interface colors at 45 and 20 seconds left
+             * Stop timer when counter reaches zero, and set gameover()
+             */
+            //Fikset countdown timer:
+            
+            //if/else statement for endringer av spillfunksjon basert på tid:
+            
+        }
+
+        //Game Over functionality
+        function gameover() {
+            console.log("Game over")
+            //Hide results and input, show startbutton with message including result and try-again-text
+              }
+
+        //Initial game run on page load:
+    </script>
+    
+</body>
+</html>
